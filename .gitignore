@@ -1,0 +1,46 @@
+# Godot 4+ specific ignores
+.godot/
+.nomedia
+
+# Godot-specific ignores
+.import/
+/android/
+export.cfg
+export_credentials.cfg
+*.tmp
+
+# Imported translations
+*.translation
+
+# Mono / C# specific ignores (if using Godot C#)
+.mono/
+mono_crash.*.json
+data_*/
+*.csproj
+*.sln
+*.nuget
+.vs/
+.idea/
+
+# Exported binaries / build output
+build/
+bin/
+exports/
+*.apk
+*.aab
+*.exe
+*.zip
+*.tar.gz
+*.a
+*.o
+*.so
+*.dylib
+*.dll
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local editor user settings
+*.tmp
