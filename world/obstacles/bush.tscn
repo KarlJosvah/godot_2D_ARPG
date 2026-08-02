@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://db2jbxuocx5fu"]
+
+[ext_resource type="Texture2D" uid="uid://dir3ls4sf4goh" path="res://world/textures/bush.png" id="1_i35g4"]
+[ext_resource type="Texture2D" uid="uid://dfixyh3p84dw8" path="res://assets/shadows/large_shadow.png" id="2_bnom8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66df2"]
+radius = 9.0
+
+[node name="Bush" type="StaticBody2D" unique_id=1819982788]
+
+[node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1091408719]
+z_index = -1
+position = Vector2(0, -2)
+texture = ExtResource("2_bnom8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=894652778]
+position = Vector2(0, -11)
+texture = ExtResource("1_i35g4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1174799934]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_66df2")

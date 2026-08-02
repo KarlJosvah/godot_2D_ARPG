@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://chuv0x6438sk6" path="res://entity/player/scripts/player.gd" id="1_e6ar1"]
 [ext_resource type="Texture2D" uid="uid://dfh4tf7v01xi1" path="res://entity/player/textures/player.png" id="1_nqnt1"]
+[ext_resource type="Texture2D" uid="uid://chgx2hfwfng01" path="res://assets/shadows/medium_shadow.png" id="3_4pl66"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0u28i"]
+radius = 7.0
 
 [sub_resource type="Animation" id="Animation_e6ar1"]
 length = 0.001
@@ -471,7 +475,6 @@ transitions = ["Start", "Move_State", SubResource("AnimationNodeStateMachineTran
 graph_offset = Vector2(-57, -108)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bgq54"]
-graph_offset = Vector2(-354, 51)
 nodes/output/position = Vector2(160, 120)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_mx88g")
 nodes/StateMachine/position = Vector2(-160, 80)
@@ -480,9 +483,24 @@ node_connections = [&"output", 0, &"StateMachine"]
 [node name="Player" type="CharacterBody2D" unique_id=1883616054]
 script = ExtResource("1_e6ar1")
 
+[node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1698453671]
+show_behind_parent = true
+z_index = -1
+position = Vector2(0, -2)
+texture = ExtResource("3_4pl66")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=194581509]
+position = Vector2(0, -13)
 texture = ExtResource("1_nqnt1")
 hframes = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1988078958]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_0u28i")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1657796018]
+position = Vector2(0, -9)
+position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1414289634]
 libraries/ = SubResource("AnimationLibrary_4btn6")
@@ -495,6 +513,3 @@ parameters/StateMachine/Attack_State/blend_position = Vector2(0, 1)
 parameters/StateMachine/Move_State/Run_State/blend_position = Vector2(0, 1)
 parameters/StateMachine/Move_State/Stand_State/blend_position = Vector2(0, 1)
 parameters/StateMachine/Roll_State/blend_position = Vector2(0, 1)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1657796018]
-position_smoothing_enabled = true

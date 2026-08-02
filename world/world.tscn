@@ -1,8 +1,57 @@
 [gd_scene format=3 uid="uid://04xh3huli7my"]
 
 [ext_resource type="PackedScene" uid="uid://bq1nnh1notao" path="res://entity/player/player.tscn" id="1_6xmxd"]
+[ext_resource type="Texture2D" uid="uid://d1uqlv6mr5luw" path="res://world/textures/grass_background.png" id="1_tcf2h"]
+[ext_resource type="PackedScene" uid="uid://db2jbxuocx5fu" path="res://world/obstacles/bush.tscn" id="3_4717r"]
+[ext_resource type="PackedScene" uid="uid://os1ep8xo4o6f" path="res://world/obstacles/tree.tscn" id="3_h5o24"]
 
 [node name="World" type="Node2D" unique_id=1532921204]
+y_sort_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=822837062]
+repeat_size = Vector2(320, 192)
+
+[node name="GrassBG" type="TextureRect" parent="Parallax2D" unique_id=988942908]
+z_index = -2
+offset_right = 320.0
+offset_bottom = 192.0
+texture = ExtResource("1_tcf2h")
+stretch_mode = 1
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=1933562791]
+y_sort_enabled = true
+
+[node name="Trees" type="Node2D" parent="Obstacles" unique_id=367661925]
+y_sort_enabled = true
+
+[node name="Tree" parent="Obstacles/Trees" unique_id=1614082701 instance=ExtResource("3_h5o24")]
+position = Vector2(-91, -12)
+
+[node name="Tree2" parent="Obstacles/Trees" unique_id=2004845662 instance=ExtResource("3_h5o24")]
+position = Vector2(29, -60)
+
+[node name="Tree3" parent="Obstacles/Trees" unique_id=1812390090 instance=ExtResource("3_h5o24")]
+position = Vector2(132, -31)
+
+[node name="Tree4" parent="Obstacles/Trees" unique_id=955408955 instance=ExtResource("3_h5o24")]
+position = Vector2(1, 54)
+
+[node name="Bushes" type="Node2D" parent="Obstacles" unique_id=731441354]
+y_sort_enabled = true
+
+[node name="Bush" parent="Obstacles/Bushes" unique_id=1819982788 instance=ExtResource("3_4717r")]
+position = Vector2(-63, 31)
+
+[node name="Bush2" parent="Obstacles/Bushes" unique_id=382346754 instance=ExtResource("3_4717r")]
+position = Vector2(-40, -59)
+
+[node name="Bush3" parent="Obstacles/Bushes" unique_id=599912403 instance=ExtResource("3_4717r")]
+position = Vector2(63, -23)
+
+[node name="Bush4" parent="Obstacles/Bushes" unique_id=113178538 instance=ExtResource("3_4717r")]
+position = Vector2(50, 49)
+
+[node name="Bush5" parent="Obstacles/Bushes" unique_id=774689240 instance=ExtResource("3_4717r")]
+position = Vector2(139, 12)
 
 [node name="Player" parent="." unique_id=1883616054 instance=ExtResource("1_6xmxd")]
-position = Vector2(155, 88)
