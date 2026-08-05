@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://db2jbxuocx5fu" path="res://world/obstacles/bush.tscn" id="3_4717r"]
 [ext_resource type="PackedScene" uid="uid://os1ep8xo4o6f" path="res://world/obstacles/tree.tscn" id="3_h5o24"]
 [ext_resource type="TileSet" uid="uid://d0ee82i72u8pa" path="res://world/ressources/cliff_tile_set.tres" id="5_sc4t8"]
+[ext_resource type="PackedScene" uid="uid://da21u85wfs7vn" path="res://world/props/grass.tscn" id="6_sc4t8"]
 
 [node name="World" type="Node2D" unique_id=1532921204]
 y_sort_enabled = true
@@ -26,6 +27,72 @@ metadata/_edit_use_anchors_ = true
 [node name="DirtTileMapLayer" type="TileMapLayer" parent="Ground" unique_id=1526597813]
 tile_map_data = PackedByteArray("AAD4//n/AAAAAAMAAAD4/wUAAAAAAAAAAAD4/wYAAAAAAAIAAAD5//n/AAAGAAAAAAD5//r/AAAAAAIAAAD5/wUAAAABAAAAAAD5/wYAAAABAAIAAAD6//n/AAACAAAAAAD6//r/AAAJAAAAAAD6//v/AAAAAAIAAAD6/wQAAAAAAAAAAAD6/wUAAAAJAAEAAAD6/wYAAAACAAIAAAD7//r/AAACAAAAAAD7//v/AAAHAAEAAAD7//z/AAAEAAIAAAD7//3/AAAAAAIAAAD7/wQAAAABAAAAAAD7/wUAAAABAAIAAAD8//z/AAACAAAAAAD8//3/AAAJAAAAAAD8//7/AAAAAAIAAAD8/wMAAAAAAAAAAAD8/wQAAAAJAAEAAAD8/wUAAAACAAIAAAD9//3/AAABAAAAAAD9//7/AAABAAIAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAD9/wMAAAAJAAEAAAD9/wQAAAACAAIAAAD+//3/AAABAAAAAAD+//7/AAAGAAEAAAD+////AAAAAAEAAAD+/wAAAAAJAAEAAAD+/wEAAAACAAEAAAD+/wIAAAACAAEAAAD+/wMAAAACAAIAAAD///3/AAACAAAAAAD///7/AAAFAAIAAAD/////AAAFAAEAAAD//wAAAAACAAIAAAAAAP7/AAABAAAAAAAAAP//AAABAAIAAAABAP7/AAABAAAAAAABAP//AAABAAIAAAACAP7/AAACAAAAAAACAP//AAAJAAAAAAACAAAAAAAAAAIAAAADAP//AAABAAAAAAADAAAAAAABAAIAAAAEAP//AAABAAAAAAAEAAAAAAAGAAEAAAAEAAEAAAAAAAIAAAAFAPv/AAAAAAAAAAAFAPz/AAAAAAEAAAAFAP3/AAAAAAEAAAAFAP7/AAAAAAEAAAAFAP//AAAJAAEAAAAFAAAAAAACAAEAAAAFAAEAAAAJAAAAAAAFAAIAAAAAAAIAAAAGAPn/AAAAAAAAAAAGAPr/AAAAAAEAAAAGAPv/AAAGAAIAAAAGAPz/AAAFAAEAAAAGAP3/AAACAAEAAAAGAP7/AAACAAEAAAAGAP//AAACAAIAAAAGAAEAAAABAAAAAAAGAAIAAAABAAIAAAAHAPn/AAACAAAAAAAHAPr/AAACAAEAAAAHAPv/AAACAAEAAAAHAPz/AAACAAIAAAAHAAEAAAACAAAAAAAHAAIAAAAJAAAAAAAHAAMAAAAAAAIAAAAIAAIAAAABAAAAAAAIAAMAAAABAAIAAAAJAAIAAAACAAAAAAAJAAMAAAAJAAAAAAAJAAQAAAAAAAIAAAAKAAMAAAABAAAAAAAKAAQAAAABAAIAAAALAAMAAAACAAAAAAALAAQAAAACAAIAAAA=")
 tile_set = ExtResource("2_fn3g3")
+
+[node name="Props" type="Node2D" parent="." unique_id=1855837533]
+y_sort_enabled = true
+
+[node name="Grass" parent="Props" unique_id=653185176 instance=ExtResource("6_sc4t8")]
+position = Vector2(-152, -120)
+
+[node name="Grass2" parent="Props" unique_id=358607957 instance=ExtResource("6_sc4t8")]
+position = Vector2(-136, -120)
+
+[node name="Grass3" parent="Props" unique_id=295968676 instance=ExtResource("6_sc4t8")]
+position = Vector2(-120, -120)
+
+[node name="Grass4" parent="Props" unique_id=831256789 instance=ExtResource("6_sc4t8")]
+position = Vector2(-104, -120)
+
+[node name="Grass5" parent="Props" unique_id=1808754472 instance=ExtResource("6_sc4t8")]
+position = Vector2(-152, -104)
+
+[node name="Grass6" parent="Props" unique_id=1196025937 instance=ExtResource("6_sc4t8")]
+position = Vector2(-136, -104)
+
+[node name="Grass7" parent="Props" unique_id=1925263348 instance=ExtResource("6_sc4t8")]
+position = Vector2(-88, 56)
+
+[node name="Grass8" parent="Props" unique_id=1828829773 instance=ExtResource("6_sc4t8")]
+position = Vector2(-72, 56)
+
+[node name="Grass9" parent="Props" unique_id=2138813315 instance=ExtResource("6_sc4t8")]
+position = Vector2(-24, -56)
+
+[node name="Grass10" parent="Props" unique_id=1552778956 instance=ExtResource("6_sc4t8")]
+position = Vector2(-8, -56)
+
+[node name="Grass11" parent="Props" unique_id=501121361 instance=ExtResource("6_sc4t8")]
+position = Vector2(72, -88)
+
+[node name="Grass12" parent="Props" unique_id=2035233965 instance=ExtResource("6_sc4t8")]
+position = Vector2(88, -88)
+
+[node name="Grass13" parent="Props" unique_id=1531262372 instance=ExtResource("6_sc4t8")]
+position = Vector2(72, -72)
+
+[node name="Grass14" parent="Props" unique_id=1562552609 instance=ExtResource("6_sc4t8")]
+position = Vector2(72, -56)
+
+[node name="Grass15" parent="Props" unique_id=910863715 instance=ExtResource("6_sc4t8")]
+position = Vector2(120, -16)
+
+[node name="Grass16" parent="Props" unique_id=994404915 instance=ExtResource("6_sc4t8")]
+position = Vector2(136, -16)
+
+[node name="Grass17" parent="Props" unique_id=259005944 instance=ExtResource("6_sc4t8")]
+position = Vector2(152, -16)
+
+[node name="Grass18" parent="Props" unique_id=1608719117 instance=ExtResource("6_sc4t8")]
+position = Vector2(152, -32)
+
+[node name="Grass19" parent="Props" unique_id=213723286 instance=ExtResource("6_sc4t8")]
+position = Vector2(152, -48)
+
+[node name="Grass20" parent="Props" unique_id=252902486 instance=ExtResource("6_sc4t8")]
+position = Vector2(-88, 40)
+
+[node name="Grass21" parent="Props" unique_id=2023191357 instance=ExtResource("6_sc4t8")]
+position = Vector2(-88, 24)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=1933562791]
 y_sort_enabled = true
@@ -52,7 +119,7 @@ y_sort_enabled = true
 position = Vector2(-63, 31)
 
 [node name="Bush2" parent="Obstacles/Bushes" unique_id=382346754 instance=ExtResource("3_4717r")]
-position = Vector2(-40, -59)
+position = Vector2(-40, -48)
 
 [node name="Bush3" parent="Obstacles/Bushes" unique_id=599912403 instance=ExtResource("3_4717r")]
 position = Vector2(63, -23)
