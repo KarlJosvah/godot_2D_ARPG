@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8gqovbmaiumh" path="res://world/textures/grass.png" id="1_ueiyc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66df2"]
-size = Vector2(14, 14)
+size = Vector2(16, 16)
 
 [node name="Grass" type="Node2D" unique_id=653185176]
 script = ExtResource("1_aocgk")
@@ -16,3 +16,5 @@ texture = ExtResource("1_ueiyc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1987485267]
 shape = SubResource("RectangleShape2D_66df2")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
