@@ -9,7 +9,6 @@ radius = 9.0
 [node name="Bush" type="StaticBody2D" unique_id=1819982788]
 
 [node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1091408719]
-z_index = -1
 position = Vector2(0, -2)
 texture = ExtResource("2_bnom8")
 
