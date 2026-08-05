@@ -485,7 +485,7 @@ script = ExtResource("1_e6ar1")
 
 [node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1698453671]
 show_behind_parent = true
-position = Vector2(0, -2)
+position = Vector2(0, -3)
 texture = ExtResource("3_4pl66")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=194581509]
