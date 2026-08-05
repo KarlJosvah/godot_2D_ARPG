@@ -541,6 +541,7 @@ nodes/StateMachine/position = Vector2(-160, 80)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1883616054]
+collision_layer = 2
 script = ExtResource("1_e6ar1")
 
 [node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1698453671]
@@ -579,6 +580,8 @@ position = Vector2(0, -9)
 
 [node name="Area2D" type="Area2D" parent="HitBoxPivot" unique_id=1989522920]
 position = Vector2(0, 9)
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBoxPivot/Area2D" unique_id=1458710748]
 polygon = PackedVector2Array(-21, 3, -11, -2, 0, 5, 10, -2, 20, 4, 11, 15, -10, 15)
