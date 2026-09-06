@@ -566,7 +566,6 @@ position_smoothing_enabled = true
 libraries/ = SubResource("AnimationLibrary_4btn6")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=497362051]
-callback_mode_discrete = 1
 tree_root = SubResource("AnimationNodeBlendTree_bgq54")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
