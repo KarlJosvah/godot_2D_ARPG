@@ -540,7 +540,7 @@ nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_mx88g")
 nodes/StateMachine/position = Vector2(-160, 80)
 node_connections = [&"output", 0, &"StateMachine"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1883616054]
+[node name="Player" type="CharacterBody2D" unique_id=1883616054 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_e6ar1")
 
