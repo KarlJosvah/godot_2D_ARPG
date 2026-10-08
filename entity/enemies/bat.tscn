@@ -79,8 +79,8 @@ nodes/StateMachine/position = Vector2(-80, 100)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Bat" type="CharacterBody2D" unique_id=858260582]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_d40ju")
 
