@@ -26,7 +26,11 @@ func _chase() -> void:
 	else:
 		self.velocity = Vector2.ZERO;
 	
+	self._adjust_sprite_orientation();
 	move_and_slide();
+
+func _adjust_sprite_orientation() -> void:
+	self.sprite_2d.scale.x = sign(self.velocity.x);
 
 func _get_player() -> Player:
 	return get_tree().get_first_node_in_group("player");
