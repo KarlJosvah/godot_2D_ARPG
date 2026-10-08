@@ -57,11 +57,11 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y6je8"]
 advance_mode = 2
-advance_expression = "_is_player_in_range()"
+advance_expression = "can_see_player()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3bumk"]
 advance_mode = 2
-advance_expression = "not _is_player_in_range()"
+advance_expression = "not can_see_player()"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7m53s"]
 states/Chase/node = SubResource("AnimationNodeAnimation_5ywcy")

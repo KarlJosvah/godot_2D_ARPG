@@ -19,7 +19,7 @@ func _idle() -> void:
 func _chase() -> void:
 	var player = self._get_player();
 	
-	if player is Player:
+	if self._player_is_valid(player):
 		player = player as Player;
 		var direction : Vector2 = self.global_position.direction_to(player.global_position);
 		velocity = direction * self.speed;
@@ -34,11 +34,18 @@ func _adjust_sprite_orientation() -> void:
 
 func _get_player() -> Player:
 	return get_tree().get_first_node_in_group("player");
+	
+func _player_is_valid(target) -> bool:
+	if not is_instance_valid(target):
+		return false;
+	if target is not Player:
+		return false;
+	return true;
 
-func _is_player_in_range() -> bool:
+func is_player_in_range() -> bool:
 	var player : Player = self._get_player();
 	
-	if player is not Player:
+	if not self._player_is_valid(player):
 		return false;
 	
 	var distance_to_player = self.global_position.distance_to(player.global_position);
@@ -46,3 +53,26 @@ func _is_player_in_range() -> bool:
 		return true;
 	else:
 		return false;
+
+func can_see_player() -> bool:
+	var player := self._get_player();
+	if not self._player_is_valid(player):
+		return false;
+	
+	if not self.is_player_in_range():
+		return false;
+	
+	var space_state : PhysicsDirectSpaceState2D = self.get_world_2d().direct_space_state;
+	var query : PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(self.global_position, player.global_position);
+	
+	query.exclude = [self.get_rid()];
+	query.collide_with_bodies = true;
+	query.collide_with_areas = false;
+	query.collision_mask = 2;
+	
+	var result : Dictionary = space_state.intersect_ray(query);
+	
+	if not result.is_empty():
+		return result.collider == player or result.collider.owner == player;
+	
+	return false;
