@@ -1,6 +1,6 @@
 extends Node2D;
 
-const GRASS_EFFECT = preload("res://world/props/grass_effect.tscn");
+@export var GRASS_EFFECT : PackedScene;
 
 func _ready() -> void:
 	pass;
