@@ -5,7 +5,7 @@ class_name Player;
 @onready var playback : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback;
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D;
-@onready var collision_polygon_2d: CollisionPolygon2D = $HitBoxPivot/Area2D/CollisionPolygon2D;
+@onready var collision_polygon_2d: CollisionPolygon2D = $HitBoxPivot/HitBox/CollisionPolygon2D;
 @onready var hit_box_pivot: Node2D = $HitBoxPivot;
 
 const SPEED : float = 100.0;

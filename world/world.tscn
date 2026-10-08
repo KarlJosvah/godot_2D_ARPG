@@ -152,3 +152,4 @@ position = Vector2(80, 0)
 position = Vector2(-40, 64)
 
 [node name="Player" parent="entities" unique_id=1883616054 instance=ExtResource("1_6xmxd")]
+collision_mask = 3
