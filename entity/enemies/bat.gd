@@ -46,21 +46,6 @@ func _player_is_valid(target) -> bool:
 		return false;
 	return true;
 
-func is_player_in_range() -> bool:
-	var player : Player = self._get_player();
-	
-	if not self._player_is_valid(player):
-		return false;
-	
-	var distance_to_player = self.global_position.distance_to(player.global_position);
-	if distance_to_player <= self.detection_range:
-		return true;
-	else:
-		return false;
-
-func can_see_player() -> bool:
-	return self.player_is_visible;
-
 func _check_player_visibility() -> bool:
 	var player := self._get_player();
 	if not self._player_is_valid(player):
@@ -84,3 +69,21 @@ func _check_player_visibility() -> bool:
 		return result.collider == player;
 	
 	return false;
+
+func is_player_in_range() -> bool:
+	var player : Player = self._get_player();
+	
+	if not self._player_is_valid(player):
+		return false;
+	
+	var distance_to_player = self.global_position.distance_to(player.global_position);
+	if distance_to_player <= self.detection_range:
+		return true;
+	else:
+		return false;
+
+func can_see_player() -> bool:
+	return self.player_is_visible;
+
+func take_damage(_damage : float, _hit_direction : Vector2) -> void:
+	queue_free();
