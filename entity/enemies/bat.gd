@@ -3,11 +3,15 @@ extends CharacterBody2D;
 @export var detection_range := 128.0;
 @export var speed := 30.0;
 
+var player_is_visible : bool = false;
+
 @onready var sprite_2d: Sprite2D = $Sprite2D;
 @onready var animation_tree: AnimationTree = $AnimationTree;
 @onready var playback : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback;
 
 func _physics_process(_delta: float) -> void:
+	self.player_is_visible = self._check_player_visibility();
+	
 	var state = self.playback.get_current_node();
 	match state:
 		"Idle" : self._idle();
@@ -55,6 +59,9 @@ func is_player_in_range() -> bool:
 		return false;
 
 func can_see_player() -> bool:
+	return self.player_is_visible;
+
+func _check_player_visibility() -> bool:
 	var player := self._get_player();
 	if not self._player_is_valid(player):
 		return false;
@@ -63,16 +70,17 @@ func can_see_player() -> bool:
 		return false;
 	
 	var space_state : PhysicsDirectSpaceState2D = self.get_world_2d().direct_space_state;
-	var query : PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(self.global_position, player.global_position);
+	var query : PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(
+		self.global_position,
+		player.get_collision_position()
+	);
 	
 	query.exclude = [self.get_rid()];
-	query.collide_with_bodies = true;
-	query.collide_with_areas = false;
-	query.collision_mask = 2;
+	query.collision_mask = 1 | 2;
 	
 	var result : Dictionary = space_state.intersect_ray(query);
 	
 	if not result.is_empty():
-		return result.collider == player or result.collider.owner == player;
+		return result.collider == player;
 	
 	return false;

@@ -4,6 +4,7 @@ class_name Player;
 @onready var animation_tree: AnimationTree = $AnimationTree;
 @onready var playback : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback;
 
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D;
 @onready var collision_polygon_2d: CollisionPolygon2D = $HitBoxPivot/Area2D/CollisionPolygon2D;
 @onready var hit_box_pivot: Node2D = $HitBoxPivot;
 
@@ -57,3 +58,6 @@ func _update_blend_position(direction : Vector2) -> void:
 
 func _update_hit_box() -> void:
 	self.hit_box_pivot.rotation = self.last_input_vector.angle() - (PI / 2);
+
+func get_collision_position() -> Vector2:
+	return self.collision_shape_2d.global_position;
