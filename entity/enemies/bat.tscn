@@ -56,8 +56,12 @@ animation = &"fly"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y6je8"]
+advance_mode = 2
+advance_expression = "_is_player_in_range()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3bumk"]
+advance_mode = 2
+advance_expression = "not _is_player_in_range()"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7m53s"]
 states/Chase/node = SubResource("AnimationNodeAnimation_5ywcy")
@@ -69,13 +73,13 @@ states/Start/position = Vector2(329, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_socmw"), "Idle", "Chase", SubResource("AnimationNodeStateMachineTransition_y6je8"), "Chase", "Idle", SubResource("AnimationNodeStateMachineTransition_3bumk")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0u28i"]
+graph_offset = Vector2(-600.33044, 3.456482)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_7m53s")
 nodes/StateMachine/position = Vector2(-80, 100)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Bat" type="CharacterBody2D" unique_id=858260582]
 collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_d40ju")
 
 [node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1779760908]
