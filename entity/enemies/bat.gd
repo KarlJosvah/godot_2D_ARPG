@@ -85,7 +85,8 @@ func is_player_in_range() -> bool:
 func can_see_player() -> bool:
 	return self.player_is_visible;
 
-func _on_hurt_box_hurt(hitbox: HitBox) -> void:
+func _on_hurt_box_hurt(hitbox : HitBox, damage : float) -> void:
 	if hitbox.owner is not Player:
 		return;
-	self.queue_free();
+	if damage > 0:
+		self.queue_free();

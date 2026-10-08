@@ -2,12 +2,12 @@ extends Node2D;
 
 @export var GRASS_EFFECT : PackedScene;
 
-func _on_hurt_box_hurt(hitbox: HitBox) -> void:
+func _on_hurt_box_hurt(hitbox: HitBox, damage : float) -> void:
 	if hitbox.owner is not Player:
 		return;
-	
-	self._trigger_grass_effect();
-	self.queue_free();
+	if damage > 0:
+		self._trigger_grass_effect();
+		self.queue_free();
 
 func _trigger_grass_effect() -> void:
 	var grass_effect_instance = GRASS_EFFECT.instantiate();
