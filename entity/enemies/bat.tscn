@@ -80,6 +80,8 @@ node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Bat" type="CharacterBody2D" unique_id=858260582]
 collision_layer = 2
+collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_d40ju")
 
 [node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1779760908]
