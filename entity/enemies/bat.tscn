@@ -106,8 +106,8 @@ tree_root = SubResource("AnimationNodeBlendTree_0u28i")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Hurt_Box" parent="." unique_id=1783950116 instance=ExtResource("4_socmw")]
+[node name="HurtBox" parent="." unique_id=1783950116 instance=ExtResource("4_socmw")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box" unique_id=1113247708]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1113247708]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_66df2")
