@@ -2,36 +2,42 @@ extends CharacterBody2D;
 
 @export var detection_range := 128.0;
 @export var speed := 30.0;
+@export var friction := 500;
 
 var player_is_visible : bool = false;
 
 @onready var sprite_2d: Sprite2D = $Sprite2D;
 @onready var animation_tree: AnimationTree = $AnimationTree;
 @onready var playback : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback;
+@onready var hurt_box: HurtBox = $HurtBox;
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	self.player_is_visible = self._check_player_visibility();
 	
 	var state = self.playback.get_current_node();
 	match state:
-		"Idle" : self._idle();
-		"Chase" : self._chase();
+		"Idle_State" : self._idle_state();
+		"Chase_State" : self._chase_state();
+		"Hit_State" : self._hit_state(delta);
+	move_and_slide();
 
-func _idle() -> void:
+func _idle_state() -> void:
 	pass;
 
-func _chase() -> void:
+func _chase_state() -> void:
 	var player = self._get_player();
 	
 	if self._player_is_valid(player):
 		player = player as Player;
 		var direction : Vector2 = self.global_position.direction_to(player.global_position);
-		velocity = direction * self.speed;
+		self.velocity = direction * self.speed;
 	else:
 		self.velocity = Vector2.ZERO;
 	
 	self._adjust_sprite_orientation();
-	move_and_slide();
+
+func _hit_state(delta) -> void:
+	self.velocity = self.velocity.move_toward(Vector2.ZERO, self.friction * delta);
 
 func _adjust_sprite_orientation() -> void:
 	self.sprite_2d.scale.x = sign(self.velocity.x);
@@ -85,8 +91,9 @@ func is_player_in_range() -> bool:
 func can_see_player() -> bool:
 	return self.player_is_visible;
 
-func _on_hurt_box_hurt(hitbox : HitBox, damage : float) -> void:
+func _on_hurt_box_hurt(hitbox : HitBox) -> void: # deferred
 	if hitbox.owner is not Player:
 		return;
-	if damage > 0:
-		self.queue_free();
+	if hitbox.get_damage() > 0:
+		self.velocity = hitbox.get_knockback_direction() * hitbox.get_knowckback_power();
+		playback.start("Hit_State");
