@@ -9,6 +9,10 @@ class_name Player;
 @onready var hit_box_pivot: Node2D = $HitBoxPivot;
 @onready var hit_box: HitBox = $HitBoxPivot/HitBox;
 
+@export var stats : Stats:
+	set(new_stats):
+		stats = StatsHelper.create_stats(stats, new_stats, &"no_health", _on_died);
+
 const SPEED : float = 100.0;
 const ROLL_SPEED : float = 125.0;
 
@@ -63,3 +67,6 @@ func _update_hit_box() -> void:
 
 func get_collision_position() -> Vector2:
 	return self.collision_shape_2d.global_position;
+
+func _on_died() -> void:
+	pass;

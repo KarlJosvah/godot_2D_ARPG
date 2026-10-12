@@ -3,7 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://do400abduc2sw" path="res://entity/enemies/textures/bat.png" id="1_5ywcy"]
 [ext_resource type="Script" uid="uid://cv3blgw8u6emx" path="res://entity/enemies/bat.gd" id="1_d40ju"]
 [ext_resource type="Texture2D" uid="uid://chej7c74qee0" path="res://assets/shadows/small_shadow.png" id="2_d40ju"]
+[ext_resource type="Script" uid="uid://dj4jy1jgv7j7g" path="res://entity/ressource/stats.gd" id="2_y6je8"]
 [ext_resource type="PackedScene" uid="uid://davjbv7tqceid" path="res://entity/area/hurt_box.tscn" id="4_socmw"]
+
+[sub_resource type="Resource" id="Resource_socmw"]
+script = ExtResource("2_y6je8")
+health = 3
+max_health = 3
+metadata/_custom_type_script = "uid://dj4jy1jgv7j7g"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_66df2"]
 radius = 7.0
@@ -55,7 +62,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_socmw"]
 resource_name = "hit"
-length = 0.19999999999999998
+length = 0.2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -135,6 +142,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_d40ju")
+stats = SubResource("Resource_socmw")
 
 [node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1779760908]
 show_behind_parent = true

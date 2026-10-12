@@ -1,0 +1,11 @@
+extends Resource;
+class_name Stats;
+
+@export var health : float = 1.0:
+	set(value):
+		health = value;
+		if health <= 0 : no_health.emit();
+
+@export var max_health : float = 1.0;
+
+signal no_health();

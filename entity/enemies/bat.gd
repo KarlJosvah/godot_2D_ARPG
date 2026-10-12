@@ -4,12 +4,20 @@ extends CharacterBody2D;
 @export var speed := 30.0;
 @export var friction := 500;
 
+@export var stats : Stats:
+	set(new_stats):
+		stats = StatsHelper.create_stats(stats, new_stats, &"no_health", _on_died);
+
 var player_is_visible : bool = false;
 
 @onready var sprite_2d: Sprite2D = $Sprite2D;
 @onready var animation_tree: AnimationTree = $AnimationTree;
 @onready var playback : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback;
 @onready var hurt_box: HurtBox = $HurtBox;
+
+func _ready() -> void:
+	#self.stats = stats.duplicate();
+	self.stats.no_health.connect(queue_free);
 
 func _physics_process(delta: float) -> void:
 	self.player_is_visible = self._check_player_visibility();
@@ -94,6 +102,10 @@ func can_see_player() -> bool:
 func _on_hurt_box_hurt(hitbox : HitBox) -> void: # deferred
 	if hitbox.owner is not Player:
 		return;
-	if hitbox.get_damage() > 0:
-		self.velocity = hitbox.get_knockback_direction() * hitbox.get_knowckback_power();
-		playback.start("Hit_State");
+	
+	self.stats.health -= hitbox.get_damage();
+	self.velocity = hitbox.get_knockback_direction() * hitbox.get_knowckback_power();
+	playback.start("Hit_State");
+
+func _on_died() -> void:
+	self.queue_free();
